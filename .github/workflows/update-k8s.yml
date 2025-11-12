@@ -392,8 +392,8 @@ jobs:
                     rec_version = versions_by_service.get('recommendations')
                     worker_version = versions_by_service.get('recommendations-worker', rec_version)
                     
-                    rec_repo = ((y.get('recommendations') or {}).get('repository')) or f"swampupsec.jfrog.io/{values_key}"
-                    worker_repo = (((y.get('recommendations') or {}).get('worker') or {}).get('repository')) or f"swampupsec.jfrog.io/{values_key}-worker"
+                    rec_repo = ((y.get('recommendations') or {}).get('repository')) or f"apptrusttraining1.jfrog.io/{values_key}"
+                    worker_repo = (((y.get('recommendations') or {}).get('worker') or {}).get('repository')) or f"apptrusttraining1.jfrog.io/{values_key}-worker"
                     
                     y.setdefault('recommendations', {})['tag']=str(rec_version)
                     y.setdefault('recommendations', {}).setdefault('worker', {})['tag']=str(worker_version)
@@ -407,7 +407,7 @@ jobs:
                 else:
                     docker_version = versions_by_service[values_key]
                     
-                    repo = ((y.get(values_key) or {}).get('repository')) or f"swampupsec.jfrog.io/{values_key}"
+                    repo = ((y.get(values_key) or {}).get('repository')) or f"apptrusttraining1.jfrog.io/{values_key}"
                     
                     y.setdefault(values_key, {})['tag']=str(docker_version)
                     
@@ -599,9 +599,9 @@ jobs:
                   service_name = app_to_service.get(app_name, app_name)
                   
                   if service_name == 'recommendations':
-                      repo = (y.get('recommendations') or {}).get('repository', f'swampupsec.jfrog.io/{service_name}')
+                      repo = (y.get('recommendations') or {}).get('repository', f'apptrusttraining1.jfrog.io/{service_name}')
                       tag = (y.get('recommendations') or {}).get('tag', 'unknown')
-                      worker_repo = ((y.get('recommendations') or {}).get('worker') or {}).get('repository', f'swampupsec.jfrog.io/{service_name}-worker')
+                      worker_repo = ((y.get('recommendations') or {}).get('worker') or {}).get('repository', f'apptrusttraining1.jfrog.io/{service_name}-worker')
                       worker_tag = ((y.get('recommendations') or {}).get('worker') or {}).get('tag', 'unknown')
                       
                       sections.append(f"- **{app_name}** `{app_version}` → `{repo}:{tag}`")
@@ -609,7 +609,7 @@ jobs:
                       sections.append(f"- **{app_name}-worker** `{app_version}` → `{worker_repo}:{worker_tag}`")
                       sections.append(f"  - Source: Application version from platform bundle (shared with main service)")
                   else:
-                      repo = (y.get(service_name) or {}).get('repository', f'swampupsec.jfrog.io/{service_name}')
+                      repo = (y.get(service_name) or {}).get('repository', f'apptrusttraining1.jfrog.io/{service_name}')
                       tag = (y.get(service_name) or {}).get('tag', 'unknown')
                       sections.append(f"- **{app_name}** `{app_version}` → `{repo}:{tag}`")
                       sections.append(f"  - Source: Application version from platform bundle")
