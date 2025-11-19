@@ -259,7 +259,7 @@ Image repository and tag
 # values.yaml - Comprehensive configuration template
 global:
   # Global configuration shared across all services
-  imageRegistry: "apptrusttraining1.jfrog.io"
+  imageRegistry: "cartert.jfrog.io"
   imagePullSecrets: 
     - name: jfrog-credentials
   storageClass: "fast-ssd"
